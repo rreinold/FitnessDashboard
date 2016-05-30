@@ -1,0 +1,196 @@
+body{
+	margin:0px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+}
+
+h2{
+	text-align:left;
+}
+
+tr {
+	/*height:50px;*/
+	overflow:hidden;
+}
+
+a {
+    color: black;
+}
+
+.container{
+	margin-top:40px;
+	margin-bottom: 40%;
+	width:100%;
+	text-align:center;
+}
+
+.title{
+	position:fixed;
+	width:100%;
+	height:42px;
+	top:0px;
+	text-align:center;
+	background-color:rgba(0,46,86,0.98);
+	padding:0px;
+	color:white;
+}
+
+.titleLabel{
+	padding-top:4px;
+}
+
+#titleLeft{
+	position:absolute;
+	top:8px;
+	left:8px;
+	font-size:12px;
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	padding:2px;
+	border-radius:4px;
+}
+
+#titleRight{
+	position:absolute;
+	top:8px;
+	right:20px;
+	font-size:12px;
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	padding:2px;
+	border-radius:4px;
+}
+
+.hidden {
+	display: none;
+}
+
+.view {
+
+}
+
+.fullInput{
+	width:90%;
+	height:40px;
+	font-size:20px;
+	margin-bottom:8px;
+	margin-top:8px;
+}
+
+.halfInput{
+	width:48%;
+	height:40px;
+	font-size:20px;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+
+.fullButton{
+	width:90%;
+	margin:8px;
+	height:40px;
+	font-size:20px;
+}
+
+.halfButton{
+	width:48%;
+	height:40px;
+	font-size:20px;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+
+.standardButton{
+	height:40px;
+	font-size:20px;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+
+
+
+.footer {
+	width:100%;
+	position: fixed;
+    bottom: 0;
+	background-color:gray;
+	text-align:center;
+	color:white;
+	padding-top:8px;
+	padding-bottom:8px;
+	font-size:small;
+}
+
+.addLabel {
+	text-align: left;
+	padding-left: 5%; 
+	margin-bottom: 0px;
+}
+
+.historyLabel {
+	text-align: left;
+	padding-left: 5%; 
+	margin: 0px;
+}
+
+.headerLabel {
+	text-align: left;
+	padding-left: 5%; 
+	margin-bottom: 0px;
+	font-weight:bold;
+}
+
+.areaInput {
+	width:90%;
+	height:10%;
+	margin-top:3%;
+}
+
+.textInput {
+	width:90%;
+	height:12%;
+	margin-top:3%;
+}
+
+.instruction {
+	padding-top: 8px;
+    margin: 8px;
+}
+
+
+#loadingScreen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    padding-bottom: 50%;
+}
+#loading {
+    width: 50%;
+    margin: 250 auto;
+}
+
+#loadingScreenInit {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#loadingInit {
+    width: 50px;
+    height: 57px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -28px 0 0 -25px;
+}

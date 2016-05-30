@@ -1,0 +1,23 @@
+{
+  "name": "clearblade-katana",
+  "version": "0.1.0",
+  "description": "A web app framework for use with ClearBlade IoT Platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rreinold/ClearBlade-Katana-Framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rreinold/ClearBlade-Katana-Framework/issues"
+  },
+  "homepage": "https://github.com/rreinold/ClearBlade-Katana-Framework#readme",
+  "dependencies": {
+    "clearblade": "^1.11.0",
+    "jsgrid": "^1.4.1"
+  }
+}
