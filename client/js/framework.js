@@ -200,3 +200,21 @@ function removeChildren(element) {
       errorCallback();
     }
   }
+
+  function snakeCaseToHumanCase(input){
+    var output = ""
+    var split = input.split("_")
+    for(var i = 0 ; i < split.length ; i++){
+      var segment = split[i] 
+      var capitalized = ""
+      if (segment.length >= 1){
+        var capitalized = (segment.charAt(0).toUpperCase() + segment.slice(1))
+      }
+      output += capitalized
+      if(i < split.length - 1){
+        output += " "
+      }
+    }
+    return output
+
+  }

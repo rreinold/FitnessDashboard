@@ -1,6 +1,18 @@
-var unmeasuredCheckIns = null;
+var bodyMeasurements = null;
 var dueDate = null
 var allCheckIns = null
+
+var sqlTypesToJSGrid={
+    "float":"number",
+    "double":"number",
+    "int":"number",
+    "bigInt":"number",
+    "uuid":"number",
+    "blob":"number",
+    "string":"text",
+    "timestamp":"text",
+    "boolean":"checkbox"
+}
 
 var cb = new ClearBlade();
 var initOptions = {
@@ -9,26 +21,8 @@ var initOptions = {
     messagingPort: 8904,
     useMQTT: true,
     cleanSession: true,
-    systemKey: "8892fcf30aeea7ba9691e780868201",
-    systemSecret: "8892FCF30A8CDDED9DFDDD92A75C",
-};
-
-// Request schemas for the Tag collection
-function fetchUnmeasuredCheckIns(callback) {
-    var query = ClearBlade.prototype.Query({"collectionName":"Checkins"})
-    query.equalTo("measured",false)
-    query.ascending("checkindate")
-    query.setPage(0, 0);
-    query.fetch(function(err, data){
-        if (err){
-           alert(JSON.stringify(data));
-        }else{
-            // Store API response locally
-            unmeasuredCheckIns = data;
-            // If both have loaded, then load the data grid
-            callback();
-        }
-    })
+    systemKey: "9898daf40ad28aa9f885dfa5dc38",
+    systemSecret: "9898DAF40A94CAC891A7D5C78749",
 };
 
 function fetchWeightGoal(){
@@ -46,19 +40,30 @@ function fetchWeightGoal(){
     })
 }
 
-function fetchAllCheckInData(callback){
-    var query = ClearBlade.prototype.Query({"collectionName":"Checkins"})
+function fetchAllBodyMeasurements(callback){
+        var query = ClearBlade.prototype.Query({"collectionName":"BodyMeasurements"})
         query.setPage(0, 0);
+        query.ascending("check_in_date")
         query.fetch(function(err, data){
             if (err){
-               alert(JSON.stringify(data));
+               
             }else{
-                // Store API response locally
-                allCheckIns = data
-                callback()
+                callback(data)
             }
         })
 
+}
+
+function fetchColumns(callback){
+    var collection = ClearBlade.prototype.Collection({"collectionID":"ba98daf40adea9d3a7a0c4c1cb62"})
+    collection.columns(function(err, data){
+        if(err){
+            alert(JSON.stringify(data));
+        }
+        else{
+            callback(data)
+        }
+    })
 }
 
 // Request schemas for the Tag collection
@@ -88,7 +93,6 @@ var startup = function(){
             var authCallback = function(){
                 showView(DEFAULT_POST_LOGIN_VIEW);
                 startupMainDashboard();
-                startupCheckIn()
                 // Start up any additional pages
             };
 
