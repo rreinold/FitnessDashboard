@@ -48,10 +48,10 @@ function fetchAllBodyMeasurements(callback){
             if (err){
                
             }else{
+                bodyMeasurements = data
                 callback(data)
             }
         })
-
 }
 
 function fetchColumns(callback){
@@ -65,6 +65,21 @@ function fetchColumns(callback){
         }
     })
 }
+
+// TODO Confirm patch
+// function fetchColumns(callback){
+//     var collection = ClearBlade.prototype.Collection({"collectionName":"BodyMeasurements"})
+//     collection.columns(function(err, data){
+//         if(err){
+//             alert(JSON.stringify(data));
+//         }
+//         else{
+//             callback(data)
+//         }
+//     })
+// }
+
+
 
 // Request schemas for the Tag collection
 var isCoordinator = function(successCallback, failureCallback) {

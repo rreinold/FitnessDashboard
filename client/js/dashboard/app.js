@@ -79,29 +79,34 @@
   //     },
   // };
 
-  var okEvent = function() {
+  function okEvent() {
     blockUI(false);
   }
 
-  var showMainDashboard = function(){
+function showMainDashboard(){
     showView("maindashboard");
   }
 
-  var showCheckIn = function(){
+  function showVisualize(){
+    showView("visualize");
+  }
+
+  function showCheckIn (){
     showView("checkin");
   }
 
-  var showLogin = function(){
+  function showLogin(){
     showView("login");
   }
 
-  var showLogout = function(){
+  function showLogout(){
     showView("logout");
   }
 
-  var initButtons = function(){
+  function initButtons (){
     setActiveButton(DEFAULT_POST_LOGIN_VIEW);
     setLoggedInAs(false);
   }
+
 
   // RR TODO: Move startup here

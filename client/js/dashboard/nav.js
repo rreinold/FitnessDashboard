@@ -72,4 +72,21 @@ var views = {
 
         }
       },
+      visualize: {
+        setup: function() {
+
+          setActiveButton("visualizeButton");
+          setLoggedInAs(true);
+          var authCallback = function(){
+            startupVisualize();
+          };
+
+          var noAuthCallback = function(){
+            showView("login");
+          }
+
+          checkAuth(authCallback, noAuthCallback)
+
+        }
+      }
   };
