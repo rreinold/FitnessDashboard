@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Rob's Fitness Dashboard</title>
+		<title>Rob's Fitness Dashboard powered by ClearBlade</title>
 		<link type="text/css" rel="stylesheet" href="css/dashboard.css">
 		<link type="text/css" rel="stylesheet" href="css/jsgrid-theme.css" />
  		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.3.1/jsgrid.min.css" />
@@ -33,11 +33,11 @@
 	</head>
 	<body onload="startup()">
 		<div class="header">
-			Rob's Fitness Dashboard
+			Rob's Fitness Dashboard <br>built with ClearBlade
 			<ul>
 				<!-- TODO Angular ng-repeat for each page -->
-			  <li><a id="maindashboardButton" onclick="showMainDashboard()">Dashboard</a></li>
-			  <li><a id="visualizeButton" onclick="showVisualize()">Visualize</a></li>
+			  <li><a id="visualizeButton" onclick="showVisualize()">Dashboard</a></li>
+			  <li><a id="maindashboardButton" onclick="showMainDashboard()">Charts</a></li>
 			  <li><a id="checkinButton" onclick="showCheckIn()">Check In</a></li>
 			  <li><a id="loginButton" onclick="showLogin()">Login</a></li>
 			  <li><a id="logoutButton" onclick="showLogout()">Logout</a></li>
@@ -69,6 +69,13 @@
 			<div class="sectionTitle">
 				Visualize
 			</div>
+			<div class="row">
+	        	<div class="col-md-12" id="graphX"></div>
+      		</div>
+ 			<div class="row">
+	        	<div class="col-md-12" id="div#custom-color-key"></div>
+      		</div>
+      		
 			<div class="row">
 	        	<div class="col-md-6" id="graph0"></div>
 	        	<div class="col-md-6" id="graph1"></div>
