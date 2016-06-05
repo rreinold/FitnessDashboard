@@ -3,15 +3,15 @@ var dueDate = null
 var allCheckIns = null
 
 var sqlTypesToJSGrid={
-    "float":"number",
-    "double":"number",
-    "int":"number",
-    "bigInt":"number",
-    "uuid":"number",
-    "blob":"number",
-    "string":"text",
-    "timestamp":"text",
-    "boolean":"checkbox"
+    "float"	    : "number",
+    "double"	: "number",
+    "int"	    : "number",
+    "bigInt"	: "number",
+    "uuid"	    : "number",
+    "blob"	    : "number",
+    "string"    : "text",
+    "timestamp"	: "text",
+    "boolean"	: "checkbox"
 }
 
 var cb = new ClearBlade();
@@ -104,7 +104,7 @@ var startup = function(){
             // this path should not happen and would only happen with a misconfigured system or server outage
             alert("failed to init");
         } else {
-
+            // initButtons()
             var authCallback = function(){
                 showView(DEFAULT_POST_LOGIN_VIEW);
                 startupMainDashboard();

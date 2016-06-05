@@ -177,7 +177,6 @@ function removeChildren(element) {
 }
 
   var checkAuth = function(successCallback, errorCallback){
-
     var email = localStorage.getItem("email");
     var token = localStorage.getItem("token");
 

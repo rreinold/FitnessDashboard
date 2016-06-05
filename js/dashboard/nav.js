@@ -2,10 +2,10 @@ var views = {
       login: {
         setup: function() {
 
-          initButtons();
+          // initButtons();
 
           var authCallback = function(){
-            showView("maindashboard");
+            showView(DEFAULT_POST_LOGIN_VIEW);
           };
 
           var noAuthCallback = function(){
