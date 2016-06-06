@@ -107,8 +107,8 @@ function mountHeaderData(){
         'label': 'New Years Eve Party Destroys Body'
     },
     {
-        'date': new Date('2016-04-04T00:00:00.000Z'),
-        'label': 'Worked @ ABP 5 Days'
+        'date': new Date('2016-04-19T00:00:00.000Z'),
+        'label': 'Body Challenge, Up the Protein'
     },
     {
         'date': new Date('2016-04-24T00:00:00.000Z'),
