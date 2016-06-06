@@ -140,7 +140,7 @@ function mountHeaderData(){
         right: 40,
         target: "#graphX",
         legend: legend,
-        legend_target: 'div#custom-color-key',
+        legend_target: '.legend',
         x_accessor: 'date',
         markers: markers,
         y_accessor: 'value',
@@ -157,10 +157,6 @@ function mountData(graphID, metric){
 	 {
         'date': new Date('2015-10-02T00:00:00.000Z'),
         'label': 'Emphasis on Cardio'
-    },
-    {
-        'date': new Date('2015-12-31T00:00:00.000Z'),
-        'label': 'NYE Party'
     },
     {
         'date': new Date('2016-04-24T00:00:00.000Z'),
