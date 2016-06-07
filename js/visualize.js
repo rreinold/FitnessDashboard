@@ -79,7 +79,7 @@ function mountHeaderData(){
 	var metrics = [
 		{"key":"weight","color": '#8C001A'},
 		{"key":"skeletal_muscle_mass","color": '#FF851B'},
-		{"key":"percent_body_fat","color": '#FFDC00'}
+		{"key":"percent_body_fat","color": '#FF851B'}
 	]
 	for(i in metrics){
 		data.push(normalizeMetric(metrics[i].key))

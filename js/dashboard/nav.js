@@ -88,5 +88,22 @@ var views = {
           checkAuth(authCallback, noAuthCallback)
 
         }
+      },
+      goals: {
+        setup: function() {
+
+          setActiveButton("goalsButton");
+          setLoggedInAs(true);
+          var authCallback = function(){
+            startupGoals();
+          };
+
+          var noAuthCallback = function(){
+            showView("login");
+          }
+
+          checkAuth(authCallback, noAuthCallback)
+
+        }
       }
   };

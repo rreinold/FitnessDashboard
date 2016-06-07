@@ -11,10 +11,17 @@
     	<link href='https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
     	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 
+    	<script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+
     	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js' charset='utf-8'></script>
  		<script src="lib/metricsgraphics.min.js"></script>
 		<script src="lib/ClearBlade.js"></script>
+		<script src="lib/ProgressBar.js"></script>
 		<script src="lib/highlight.pack.js"></script>
 		<script src="js/dashboard/nav.js"></script>
 		<script src="js/framework.js"></script>
@@ -22,6 +29,7 @@
 		<script src="js/logout.js"></script>
 		<script src="js/login.js"></script>
 		<script src="js/visualize.js"></script>
+		<script src="js/goals.js"></script>
 		<script src="js/coreDashboard.js"></script>
 		<script src="js/dashboard/dashboard.js"></script>
 
@@ -36,6 +44,7 @@
 				<!-- TODO Angular ng-repeat for each page -->
 			  <li><a id="visualizeButton" onclick="showVisualize()">Dashboard</a></li>
 			  <li><a id="maindashboardButton" onclick="showMainDashboard()">Charts</a></li>
+			  <li><a id="goalsButton" onclick="showGoals()">Goals</a></li>
 			  <li><a id="checkinButton" onclick="showCheckIn()">Check In</a></li>
 			  <li><a id="loginButton" onclick="showLogin()">Login</a></li>
 			  <li><a id="logoutButton" onclick="showLogout()">Logout</a></li>
@@ -67,6 +76,7 @@
 			<div class="sectionTitle">
 				Visualize
 			</div>
+			<hr>
 			<div class="row">
 	        	<div class="col-md-12" id="graphX"></div>
       		</div>
@@ -90,6 +100,39 @@
 			<div>
 	        	<div class="col-md-6" id="graph6"></div>
 	        	<div class="col-md-6" id="graph7"></div>
+			</div>
+		</div>
+		<div class="hidden" id="goals" >
+			<div class="sectionTitle">
+				Goals
+			</div>
+			<hr>
+			<div class="row">
+	        	<div class="col-md-12" id="goalX"></div>
+      		</div>
+ 			<div class="row">
+	        	<div style="text-align: center"class="col-md-12 legend" id="div#custom-color-key"></div>
+      		</div>
+      		<hr>
+      		
+			<div class="row">
+	        	<div class="col-md-6" id="goal0"></div>
+	        	<div class="col-md-6" id="goal1"></div>
+      		</div>
+      		<hr>
+ 			<div class="row">
+	        	<div class="col-md-6" id="goal2"></div>
+	        	<div class="col-md-6" id="goal3"></div>
+      		</div>
+      		<hr>
+      		<div>
+	        	<div class="col-md-6" id="goal4"></div>
+	        	<div class="col-md-6" id="goal5"></div>
+			</div>
+			<hr>
+			<div>
+	        	<div class="col-md-6" id="goal6"></div>
+	        	<div class="col-md-6" id="goal7"></div>
 			</div>
 		</div>
 		<div id="login" class="hidden">

@@ -24,6 +24,10 @@ function showMainDashboard(){
     showView("logout");
   }
 
+  function showGoals(){
+    showView("goals")
+  }
+
   function initButtons (){
     setActiveButton(DEFAULT_POST_LOGIN_VIEW);
     setLoggedInAs(false);
