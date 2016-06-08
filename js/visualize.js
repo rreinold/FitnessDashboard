@@ -23,13 +23,18 @@ function graph() {
 
 	var metrics = [
 	{"key":"weight","color": '#8C001A'},
-	{"key":"skeletal_muscle_mass","color": '#FF851B'},
-	{"key":"dry_lean_mass","color": '#001f3f'},
-	{"key":"percent_body_fat","color": '#FFDC00'},
-	{"key":"dry_lean_mass","color": '#2ECC40'},
-	{"key":"left_arm_mass","color": '#7FDBFF'},
-	{"key":"bmi","color": '#FF4136'},
-	{"key":"basal_metabolic_rate","color":"#B10DC9"}
+    {"key":"basal_metabolic_rate","color":"#001f3f"},
+    {"key":"dry_lean_mass","color": '#001f3f'},
+    {"key":"bmi","color": '#FF4136'},
+    {"key":"skeletal_muscle_mass","color": '#FF851B',"width":"full"},
+    {"key":"percent_body_fat","color": '#FFDC00',"width":"full"},
+
+	{"key":"left_arm_mass","color": '#8C001A'},
+    {"key":"right_arm_mass","color":"#8C001A"},
+    {"key":"trunk_mass","color":"#7FDBFF", "width":"full"},
+    {"key":"left_leg_mass","color":"#FF851B"},
+    {"key":"right_leg_mass","color":"#001f3f"}
+
 	]
 
 	for(i in metrics){
@@ -88,7 +93,8 @@ function mountHeaderData(){
 	 var markers = [
 	 {
         'date': new Date('2015-10-02T00:00:00.000Z'),
-        'label': 'Emphasis on Cardio'
+        'label': 'Emphasis on Cardio',
+        'affects':'all'
     },
 	 {
         'date': new Date('2015-11-18T00:00:00.000Z'),
@@ -126,6 +132,8 @@ function mountHeaderData(){
 	for(i in metrics){
 		legend.push(snakeCaseToHumanCase(metrics[i].key))
 	}
+
+
 
 
 	MG.data_graphic({
@@ -171,11 +179,15 @@ function mountData(graphID, metric){
 	var data = retrieveMetric(metric.key)
 	var graphName = "#graph" + graphID
 	// createGraphElement("graph" + graphID)
+    var width = 600
+    if(metric.width){
+        width*=2
+    }
     MG.data_graphic({
         title: snakeCaseToHumanCase(metric.key),
         description: "This is a simple line chart. You can remove the area portion by adding area: false to the arguments list.",
         data: data,
-        width: 600,
+        width: width,
         interpolate: 'basic',
         animate_on_load: true,
         min_y_from_data: true,
