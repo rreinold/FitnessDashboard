@@ -1,6 +1,7 @@
 var bodyMeasurements = null;
 var dueDate = null
 var allCheckIns = null
+var initialized = false
 
 var sqlTypesToJSGrid={
     "float"	    : "number",

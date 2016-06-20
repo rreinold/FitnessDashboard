@@ -1,7 +1,15 @@
 function startupVisualize(){
-	// TODO minimize duplicate API CAll
-	fetchAllBodyMeasurements(graph)
-
+    if(!initialized){
+        Q.all([fetchAllBodyMeasurements(graph),fetchColumns(buildColumns)])
+                .then(function(){
+                    structureRowData(bodyMeasurements)
+                    startupProgressBars()
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+                .done();
+    }
 }
 function retrieveMetric(key){
 	var graphData = []
@@ -140,7 +148,7 @@ function mountHeaderData(){
         title: "Key Metrics",
         description: "This is a simple line chart. You can remove the area portion by adding area: false to the arguments list.",
 		data: [data[0], data[1], data[2]],
-        width: 1200,
+        width: 700,
         interpolate: 'basic',
         animate_on_load: true,
         min_y_from_data: true,

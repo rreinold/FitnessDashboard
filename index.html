@@ -1,215 +1,314 @@
 <html>
-	<head>
-		<title>Rob's Fitness Dashboard</title>
-		<link type="text/css" rel="stylesheet" href="css/dashboard.css">
-		<link type="text/css" rel="stylesheet" href="css/jsgrid-theme.css" />
- 		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.3.1/jsgrid.min.css" />
- 		<link type="text/css" rel="stylesheet" href="css/metricsgraphics.css" />
+<head>
 
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-    	<link href='https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
-    	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-
-    	<script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.js"></script>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.js"></script>
-		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<style>
+	#grad1 {
+		height: 100%;
+		background: #e7e8e9; /* For browsers that do not support gradients */
+	}
 
 
+	</style>
 
-    	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js' charset='utf-8'></script>
- 		<script src="lib/metricsgraphics.min.js"></script>
-		<script src="lib/ClearBlade.js"></script>
-		<script src="lib/ProgressBar.js"></script>
-		<script src="lib/highlight.pack.js"></script>
-		<script src="js/dashboard/nav.js"></script>
-		<script src="js/framework.js"></script>
-		<script src="js/dashboard/app.js"></script>
-		<script src="js/logout.js"></script>
-		<script src="js/login.js"></script>
-		<script src="js/visualize.js"></script>
-		<script src="js/goals.js"></script>
-		<script src="js/coreDashboard.js"></script>
-		<script src="js/dashboard/dashboard.js"></script>
+	<title>Rob's Fitness Dashboard</title>
+	<link type="text/css" rel="stylesheet" href="css/jsgrid-theme.css" />
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.3.1/jsgrid.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/metricsgraphics.css" />
+	<link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.js"></script>
-		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		<script type="text/javascript" src="lib/jsgrid.js"></script>
-	</head>
-	<body onload="startup()">
-		<div class="header">
-			Rob's Fitness Dashboard
-			<ul>
-				<!-- TODO Angular ng-repeat for each page -->
-			  <li><a id="visualizeButton" onclick="showVisualize()">Dashboard</a></li>
-			  <li><a id="maindashboardButton" onclick="showMainDashboard()">Charts</a></li>
-			  <li><a id="goalsButton" onclick="showGoals()">Goals</a></li>
-			  <li><a id="checkinButton" onclick="showCheckIn()">Check In</a></li>
-			  <li><a id="loginButton" onclick="showLogin()">Login</a></li>
-			  <li><a id="logoutButton" onclick="showLogout()">Logout</a></li>
-			</ul>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="lib/materialize.js"></script>
+	<script src="lib/metricsgraphics.min.js"></script>
+	<script src="lib/ClearBlade.js"></script>
+	<script src="lib/ProgressBar.js"></script>
+	<script src="lib/highlight.pack.js"></script>
+	<script src="lib/q.js"></script>
+	<script src="js/dashboard/nav.js"></script>
+	<script src="js/framework.js"></script>
+	<script src="js/dashboard/app.js"></script>
+	<script src="js/logout.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/progress.js"></script>
+	<script src="js/visualize.js"></script>
+	<script src="js/goals.js"></script>
+	<script src="js/apiservice.js"></script>
+	<script src="js/dashboard/dashboard.js"></script>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="lib/jsgrid.js"></script>
+</head>
+<body onload="startup()" id="grad1">
+	<nav class="blue darken-3">
+  	<div class="navbar-wrapper container">
+  		<a href="#" class="brand-logo right"><img class="responsive-img" src="http://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" /></a>
+  		<ul class="left">
+			<li id="visualizeButton" onclick="showVisualize()"><a><i class="material-icons left">dashboard</i>Dashboard</a></li>
+			<li><a id="maindashboardButton" onclick="showMainDashboard()">Charts</a></li>
+			<li><a id="goalsButton" onclick="showGoals()">Goals</a></li>
+			<li><a id="checkinButton" onclick="showCheckIn()">Check In</a></li>
+			<li><a id="loginButton" onclick="showLogin()">Login</a></li>
+			<li><a id="logoutButton" onclick="showLogout()">Logout</a></li>
+  		</ul>
+  	</div>
+  </nav>
+
+	<div class="section" id="maindashboard" class="hide">
+		<div class="sectionTitle">
+			Weekly Check-Ins
 		</div>
-		<div class="section" id="maindashboard" class="hidden">
-			<div class="sectionTitle">
-				Weekly Check-Ins
+		<div>
+			<div id="tagGrid"></div>
+		</div>
+	</div>
+
+	<div class="hide" id="checkin" >
+		<div class="sectionTitle">
+			Check In
+		</div>
+		<div>
+			<div id="ticketGrid"></div>
+			<select style="width:100%" id="checkInSelect"></select>
+			Enter Weight: <br>
+
+			<button style="width:100%" onClick="submitCheckIn()">Submit</button>
+		</div>
+	</div>
+	<div class="hide" id="visualize" >
+
+
+		<div class="row">
+			<div class="col l12">
+				<div class="card z-depth-2">
+					<div class="card-content">
+						<p class="flow-text center-align"> NASA's Internet of Things Dashboard</p>
+						<p class=" center-align"> Powered by ClearBlade</p>
+					</div>
+				</div>
 			</div>
-			<div>
-			    
-			    <div id="tagGrid"></div>
-	    	</div>
 		</div>
 
-		<div class="hidden" id="checkin" >
-			<div class="sectionTitle">
-				Check In
+		<div class="row">
+			<div class="col l9">
+				<div class="card z-depth-2">
+					<div class="card-title center-align">
+						<span class="center-align">Core Metrics</span>
+					</div>
+					<div class="card-panel waves-effect waves-block waves-light">
+						<div id="graphX"></div>
+						<div style="text-align: center"class="col-md-12 legend" id="div#custom-color-key"></div>
+					</div>
+				</div>
 			</div>
-			<div>
-			    <div id="ticketGrid"></div>
-			    <select style="width:100%" id="checkInSelect"></select>
-			    Enter Weight: <br>
-			    <input style="width:100%" id="weight"></input>
-			    <button style="width:100%" onClick="submitCheckIn()">Submit</button>
-	    	</div>
+			<div class="col l3">
+				<div class="card z-depth-2">
+					<div class="card-title center-align">
+						<span class="center-align">Decryption Success</span>
+					</div>
+					<div class="card-panel waves-effect waves-block waves-light">
+						<div id="progressbar1"></div>
+					</div>
+				</div>
+				<div class="card z-depth-2">
+					<div class="card-title center-align">
+						<span class="center-align">Scanner Load</span>
+					</div>
+					<div class="card-panel waves-effect waves-block waves-light">
+						<div id="progressbar2"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="hidden" id="visualize" >
-			<div class="sectionTitle">
+		<div class="row">
+			<div class="col l12">
+				<div class="card z-depth-2">
+					<div class="card-title center-align">
+						<span class="center-align">Datatype Breakdown per Zone</span>
+					</div>
+					<div class="card-content">
+						<div class="center-align" id="piecharts"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col l12">
+				<div class="card z-depth-2">
+					<div class="card-content">
+						<div class="center-align" id="graphX"></div>
+					</div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col l6">
+				<div class="card z-depth-2">
+					<div class="card-content">
+						<div class="center-align" id="graph0"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col l6">
+				<div class="card z-depth-2">
+					<div class="card-content ">
+						<div class="center-align" id="graph1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="sectionTitle">
+			<hr>
+			<p style="text-align: center">Primary Metrics<p>
 				<hr>
-		        <p style="text-align: center">Primary Metrics<p>
-		        <hr>
 			</div>
 			<hr>
 			<div class="row">
-	        	<div class="col-md-12" id="graphX"></div>
-      		</div>
- 			<div class="row">
-	        	<div style="text-align: center"class="col-md-12 legend" id="div#custom-color-key"></div>
-      		</div>
+				<div style="text-align: center"class="col-md-12 legend" id="div#custom-color-key"></div>
+			</div>
 
 			<div class="sectionTitle">
 				<hr>
-		        <p style="text-align: center">Secondary Metrics<p>
-		        <hr>
-			</div>
+				<p style="text-align: center">Secondary Metrics<p>
+					<hr>
+				</div>
 
-      		
-			<div class="row">
-	        	<div class="col-md-6" id="graph0"></div>
-	        	<div class="col-md-6" id="graph1"></div>
-      		</div>
-      		<div class="row">
-	        	<div class="col-md-6" id="graph2"></div>
-	        	<div class="col-md-6" id="graph3"></div>
-			</div>
- 			<div class="row">
-	        	<div class="col-md-12" id="graph4"></div>
-      		</div>
-			<div class="row">
-	        	<div class="col-md-12" id="graph5"></div>
-	        </div>
 
-			<div class="sectionTitle">
-				<hr>
-		        <p style="text-align: center">Segment Analysis<p>
-		        <hr>
-			</div>
+				<div class="row">
+					<div class="col-md-6" id="graph0"></div>
+					<div class="col-md-6" id="graph1"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-6" id="graph2"></div>
+					<div class="col-md-6" id="graph3"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12" id="graph4"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12" id="graph5"></div>
+				</div>
 
-			<div class="row">
-	        	<div class="col-md-6" id="graph6"></div>
-	        	<div class="col-md-6" id="graph7"></div>
-			</div>
-			<div class="row">
-	        	<div class="col-md-12" id="graph8"></div>
-			</div>
-			<div class="row">
-	        	<div class="col-md-6" id="graph9"></div>
-	        	<div class="col-md-6" id="graph10"></div>
-			</div>
-			<div class="row">
-	        	<div class="col-md-6" id="graph11"></div>
-	        	<div class="col-md-6" id="graph12"></div>
-			</div>
-			<div class="row">
-	        	<div class="col-md-6" id="graph13"></div>
-	        	<div class="col-md-6" id="graph14"></div>
-			</div>
-		</div>
-		<div class="hidden" id="goals" >
-			<div class="sectionTitle">
-				Goals
-			</div>
-			<hr>
-			<div class="row">
-	        	<div class="col-md-12" id="goalX"></div>
-      		</div>
- 			<div class="row">
-	        	<div class="col-md-12 legend" id="div#custom-color-key"></div>
-      		</div>
-      		<hr>
-      		
-			<div class="row">
-	        	<div class="col-md-6" id="goal0"></div>
-	        	<div class="col-md-6" id="goal1"></div>
-      		</div>
-      		<hr>
- 			<div class="row">
-	        	<div class="col-md-6" id="goal2"></div>
-	        	<div class="col-md-6" id="goal3"></div>
-      		</div>
-      		<hr>
-      		<div>
-	        	<div class="col-md-6" id="goal4"></div>
-	        	<div class="col-md-6" id="goal5"></div>
-			</div>
-			<hr>
-			<div>
-	        	<div class="col-md-6" id="goal6"></div>
-	        	<div class="col-md-6" id="goal7"></div>
-			</div>
+				<div class="sectionTitle">
+					<hr>
+					<p style="text-align: center">Segment Analysis<p>
+						<hr>
+					</div>
 
-			<div>
-	        	<div class="col-md-6" id="goal6"></div>
-	        	<div class="col-md-6" id="goal7"></div>
-			</div>
-			<div>
-	        	<div class="col-md-6" id="goal8"></div>
-	        	<div class="col-md-6" id="goal9"></div>
-			</div>
-			<div>
-	        	<div class="col-md-6" id="goal10"></div>
-	        	<div class="col-md-6" id="goal11"></div>
-			</div>
-			<div>
-	        	<div class="col-md-6" id="goal12"></div>
-	        	<div class="col-md-6" id="goal13"></div>
-			</div>
-		</div>
-		<div id="login" class="hidden">
-				<div style="padding-top:5%;"> You must be logged in to perform this action </div>
+					<div class="row">
+						<div class="col-md-6" id="graph6"></div>
+						<div class="col-md-6" id="graph7"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" id="graph8"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6" id="graph9"></div>
+						<div class="col-md-6" id="graph10"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6" id="graph11"></div>
+						<div class="col-md-6" id="graph12"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6" id="graph13"></div>
+						<div class="col-md-6" id="graph14"></div>
+					</div>
+				</div>
+				<div class="hide" id="goals" >
+					<div class="sectionTitle">
+						Goals
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12" id="goalX"></div>
+					</div>
+					<div class="row">
+					</div>
+					<hr>
+
+					<div class="row">
+						<div class="col-md-6" id="goal0"></div>
+						<div class="col-md-6" id="goal1"></div>
+					</div>
+					<hr>
+					<div class="col-md-12 legend" id="div#custom-color-key"></div>
+					<hr>
+					<div class="row">
+						<div class="col-md-6" id="goal2"></div>
+						<div class="col-md-6" id="goal3"></div>
+					</div>
+					<hr>
+					<div>
+						<div class="col-md-6" id="goal4"></div>
+						<div class="col-md-6" id="goal5"></div>
+					</div>
+					<hr>
+					<div>
+						<div class="col-md-6" id="goal6"></div>
+						<div class="col-md-6" id="goal7"></div>
+					</div>
+
+					<div>
+						<div class="col-md-6" id="goal6"></div>
+						<div class="col-md-6" id="goal7"></div>
+					</div>
+					<div>
+						<div class="col-md-6" id="goal8"></div>
+						<div class="col-md-6" id="goal9"></div>
+					</div>
+					<div>
+						<div class="col-md-6" id="goal10"></div>
+						<div class="col-md-6" id="goal11"></div>
+					</div>
+					<div>
+						<div class="col-md-6" id="goal12"></div>
+						<div class="col-md-6" id="goal13"></div>
+					</div>
+				</div>
+				<div id="login" class="hide">
+					<div style="padding-top:5%;"> You must be logged in to perform this action </div>
 					<input class="fullInput" id="email"  placeholder="email" type="text" value=""/>
 					<input class="fullInput" id="password" placeholder="password" type="password" value=""/>
 					
 					<div></div>
 					<br>
 					<button class="fullButton" id="loginButton" onClick="loginEvent()">Login</button>
-				<div class="error" id="loginError"></div>
-		</div>
-		<div class="hidden" id="logout">
-			You have logged out.
-		</div>
-		<div id="loadingScreen" class="hidden">
-			<div id="loading">
-				<div style="color:white;min-width:200px" id="loadMessage"></div>
-				<button class="fullButton" id="okbutton" onClick="okEvent()">OK</button>
-				<!-- <img src="img/wheel.gif"/> -->
-			</div>
-		</div>
-		<div id="loadingScreenInit" class="hidden">
-			<div id="loadingInit">
-				<div style="color:white;min-width:200px" id="loadMessageInit"></div>
-				<!-- <img src="img/wheel.gif"/> -->
-			</div>
-		</div>
-		
-	</body>
-</html>
+					<div class="error" id="loginError"></div>
+				</div>
+				<div class="hide" id="logout">
+					You have logged out.
+				</div>
+				<div id="loadingScreen" class="hide">
+					<div id="loading">
+						<div style="color:white;min-width:200px" id="loadMessage"></div>
+						<button class="fullButton" id="okbutton" onClick="okEvent()">OK</button>
+						<!-- <img src="img/wheel.gif"/> -->
+					</div>
+				</div>
+				<div id="loadingScreenInit" class="hide">
+					<div id="loadingInit">
+						<div style="color:white;min-width:200px" id="loadMessageInit"></div>
+						<!-- <img src="img/wheel.gif"/> -->
+					</div>
+				</div>
+
+			</body>
+			</html>
