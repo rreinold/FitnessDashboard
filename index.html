@@ -50,160 +50,141 @@
 </head>
 <body onload="startup()" id="grad1">
 	<nav class="blue darken-3">
-  	<div class="navbar-wrapper container">
-  		<a href="#" class="brand-logo right"><img class="responsive-img" src="http://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" /></a>
-  		<ul class="left">
-			<li id="visualizeButton" onclick="showVisualize()"><a><i class="material-icons left">dashboard</i>Dashboard</a></li>
-			<li><a id="maindashboardButton" onclick="showMainDashboard()">Charts</a></li>
-			<li><a id="goalsButton" onclick="showGoals()">Goals</a></li>
-			<li><a id="checkinButton" onclick="showCheckIn()">Check In</a></li>
-			<li><a id="loginButton" onclick="showLogin()">Login</a></li>
-			<li><a id="logoutButton" onclick="showLogout()">Logout</a></li>
-  		</ul>
-  	</div>
-  </nav>
-
-	<div class="section" id="maindashboard" class="hide">
-		<div class="sectionTitle">
-			Weekly Check-Ins
+		<div class="navbar-wrapper container">
+			<a href="#" class="brand-logo right"><img class="responsive-img" src="http://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" /></a>
+			<ul class="left">
+				<li id="visualizeButton" onclick="showVisualize()"><a><i class="material-icons left">dashboard</i>Dashboard</a></li>
+				<li><a id="maindashboardButton" onclick="showMainDashboard()">Charts</a></li>
+				<li><a id="goalsButton" onclick="showGoals()">Goals</a></li>
+				<li><a id="checkinButton" onclick="showCheckIn()">Check In</a></li>
+				<li><a id="loginButton" onclick="showLogin()">Login</a></li>
+				<li><a id="logoutButton" onclick="showLogout()">Logout</a></li>
+			</ul>
 		</div>
-		<div>
-			<div id="tagGrid"></div>
-		</div>
-	</div>
-
-	<div class="hide" id="checkin" >
-		<div class="sectionTitle">
-			Check In
-		</div>
-		<div>
-			<div id="ticketGrid"></div>
-			<select style="width:100%" id="checkInSelect"></select>
-			Enter Weight: <br>
-
-			<button style="width:100%" onClick="submitCheckIn()">Submit</button>
-		</div>
-	</div>
-	<div class="hide" id="visualize" >
-
-
-		<div class="row">
-			<div class="col l12">
-				<div class="card z-depth-2">
-					<div class="card-content">
-						<p class="flow-text center-align"> NASA's Internet of Things Dashboard</p>
-						<p class=" center-align"> Powered by ClearBlade</p>
-					</div>
-				</div>
+	</nav>
+	<div class="container">
+		<div class="section" id="maindashboard" class="hide">
+			<div class="sectionTitle">
+				Weekly Check-Ins
+			</div>
+			<div>
+				<div id="tagGrid"></div>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col l9">
-				<div class="card z-depth-2">
-					<div class="card-title center-align">
-						<span class="center-align">Core Metrics</span>
-					</div>
-					<div class="card-panel waves-effect waves-block waves-light">
-						<div id="graphX"></div>
-						<div style="text-align: center"class="col-md-12 legend" id="div#custom-color-key"></div>
-					</div>
-				</div>
+		<div class="hide" id="checkin" >
+			<div class="sectionTitle">
+				Check In
 			</div>
-			<div class="col l3">
-				<div class="card z-depth-2">
-					<div class="card-title center-align">
-						<span class="center-align">Decryption Success</span>
-					</div>
-					<div class="card-panel waves-effect waves-block waves-light">
-						<div id="progressbar1"></div>
-					</div>
-				</div>
-				<div class="card z-depth-2">
-					<div class="card-title center-align">
-						<span class="center-align">Scanner Load</span>
-					</div>
-					<div class="card-panel waves-effect waves-block waves-light">
-						<div id="progressbar2"></div>
-					</div>
-				</div>
+			<div>
+				<div id="ticketGrid"></div>
+				<select style="width:100%" id="checkInSelect"></select>
+				Enter Weight: <br>
+
+				<button style="width:100%" onClick="submitCheckIn()">Submit</button>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col l12">
-				<div class="card z-depth-2">
-					<div class="card-title center-align">
-						<span class="center-align">Datatype Breakdown per Zone</span>
-					</div>
-					<div class="card-content">
-						<div class="center-align" id="piecharts"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col l12">
-				<div class="card z-depth-2">
-					<div class="card-content">
-						<div class="center-align" id="graphX"></div>
-					</div>
+		<div class="hide" id="visualize" >
 
 
-
-
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col l6">
-				<div class="card z-depth-2">
-					<div class="card-content">
-						<div class="center-align" id="graph0"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col l6">
-				<div class="card z-depth-2">
-					<div class="card-content ">
-						<div class="center-align" id="graph1"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="sectionTitle">
-			<hr>
-			<p style="text-align: center">Primary Metrics<p>
-				<hr>
-			</div>
-			<hr>
 			<div class="row">
-				<div style="text-align: center"class="col-md-12 legend" id="div#custom-color-key"></div>
+				<div class="col l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+							<p class="flow-text center-align"> Rob's Fitness Dashboard</p>
+							<p class=" center-align"> Powered by ClearBlade</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col l9">
+					<div class="card z-depth-2">
+						<div class="card-title center-align">
+							<span class="center-align">Core Metrics</span>
+						</div>
+						<div class="card-panel waves-effect waves-block waves-light">
+							<div id="graphX"></div>
+							<div style="text-align: center"class="col l12 legend" id="div#custom-color-key"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col l3">
+					<div class="card z-depth-2">
+						<div class="card-title center-align">
+							<span class="center-align">Workout Consistency</span>
+						</div>
+						<div class="card-panel waves-effect waves-block waves-light">
+							<div id="progressbar1"></div>
+						</div>
+					</div>
+					<div class="card z-depth-2">
+						<div class="card-title center-align">
+							<span class="center-align">Goals Achieved</span>
+						</div>
+						<div class="card-panel waves-effect waves-block waves-light">
+							<div id="progressbar2"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col l6">
+					<div class="card z-depth-2">
+						<div class="card-content">
+							<div class="center-align" id="graph0"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col l6">
+					<div class="card z-depth-2">
+						<div class="card-content ">
+							<div class="center-align" id="graph1"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="sectionTitle">
 				<hr>
-				<p style="text-align: center">Secondary Metrics<p>
+				<p style="text-align: center">Core Metrics<p>
 					<hr>
 				</div>
 
+				<div class="row">
+					<div class="col l6">
+						<div class="card z-depth-2">
+							<div class="card-content">
+								<div class="center-align" id="graph2"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col l6">
+						<div class="card z-depth-2">
+							<div class="card-content ">
+								<div class="center-align" id="graph3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div class="row">
-					<div class="col-md-6" id="graph0"></div>
-					<div class="col-md-6" id="graph1"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-6" id="graph2"></div>
-					<div class="col-md-6" id="graph3"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-12" id="graph4"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-12" id="graph5"></div>
+					<div class="col l6">
+						<div class="card z-depth-2">
+							<div class="card-content">
+								<div class="center-align" id="graph4"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col l6">
+						<div class="card z-depth-2">
+							<div class="card-content ">
+								<div class="center-align" id="graph5"></div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div class="sectionTitle">
@@ -211,26 +192,51 @@
 					<p style="text-align: center">Segment Analysis<p>
 						<hr>
 					</div>
+					<div class="row">
+						<div class="col l6">
+							<div class="card z-depth-2">
+								<div class="card-content">
+									<div class="center-align" id="graph6"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col l6">
+							<div class="card z-depth-2">
+								<div class="card-content ">
+									<div class="center-align" id="graph7"></div>
+								</div>
+							</div>
+						</div>
+					</div>
 
 					<div class="row">
-						<div class="col-md-6" id="graph6"></div>
-						<div class="col-md-6" id="graph7"></div>
+						<div class="col l6">
+							<div class="card z-depth-2">
+								<div class="card-content">
+									<div class="center-align" id="graph8"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col l6">
+							<div class="card z-depth-2">
+								<div class="card-content ">
+									<div class="center-align" id="graph9"></div>
+								</div>
+							</div>
+						</div>
 					</div>
+
+
 					<div class="row">
-						<div class="col-md-12" id="graph8"></div>
+						<div class="col l12">
+							<div class="card z-depth-2">
+								<div class="card-content">
+									<div class="center-align" id="graph10"></div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6" id="graph9"></div>
-						<div class="col-md-6" id="graph10"></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6" id="graph11"></div>
-						<div class="col-md-6" id="graph12"></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6" id="graph13"></div>
-						<div class="col-md-6" id="graph14"></div>
-					</div>
+
 				</div>
 				<div class="hide" id="goals" >
 					<div class="sectionTitle">
@@ -238,56 +244,56 @@
 					</div>
 					<hr>
 					<div class="row">
-						<div class="col-md-12" id="goalX"></div>
+						<div class="col l12" id="goalX"></div>
 					</div>
 					<div class="row">
 					</div>
 					<hr>
 
 					<div class="row">
-						<div class="col-md-6" id="goal0"></div>
-						<div class="col-md-6" id="goal1"></div>
+						<div class="col l6" id="goal0"></div>
+						<div class="col l6" id="goal1"></div>
 					</div>
 					<hr>
-					<div class="col-md-12 legend" id="div#custom-color-key"></div>
+					<div class="col l12 legend" id="div#custom-color-key"></div>
 					<hr>
 					<div class="row">
-						<div class="col-md-6" id="goal2"></div>
-						<div class="col-md-6" id="goal3"></div>
+						<div class="col l6" id="goal2"></div>
+						<div class="col l6" id="goal3"></div>
 					</div>
 					<hr>
 					<div>
-						<div class="col-md-6" id="goal4"></div>
-						<div class="col-md-6" id="goal5"></div>
+						<div class="col l6" id="goal4"></div>
+						<div class="col l6" id="goal5"></div>
 					</div>
 					<hr>
 					<div>
-						<div class="col-md-6" id="goal6"></div>
-						<div class="col-md-6" id="goal7"></div>
+						<div class="col l6" id="goal6"></div>
+						<div class="col l6" id="goal7"></div>
 					</div>
 
 					<div>
-						<div class="col-md-6" id="goal6"></div>
-						<div class="col-md-6" id="goal7"></div>
+						<div class="col l6" id="goal6"></div>
+						<div class="col l6" id="goal7"></div>
 					</div>
 					<div>
-						<div class="col-md-6" id="goal8"></div>
-						<div class="col-md-6" id="goal9"></div>
+						<div class="col l6" id="goal8"></div>
+						<div class="col l6" id="goal9"></div>
 					</div>
 					<div>
-						<div class="col-md-6" id="goal10"></div>
-						<div class="col-md-6" id="goal11"></div>
+						<div class="col l6" id="goal10"></div>
+						<div class="col l6" id="goal11"></div>
 					</div>
 					<div>
-						<div class="col-md-6" id="goal12"></div>
-						<div class="col-md-6" id="goal13"></div>
+						<div class="col l6" id="goal12"></div>
+						<div class="col l6" id="goal13"></div>
 					</div>
 				</div>
 				<div id="login" class="hide">
 					<div style="padding-top:5%;"> You must be logged in to perform this action </div>
 					<input class="fullInput" id="email"  placeholder="email" type="text" value=""/>
 					<input class="fullInput" id="password" placeholder="password" type="password" value=""/>
-					
+
 					<div></div>
 					<br>
 					<button class="fullButton" id="loginButton" onClick="loginEvent()">Login</button>
@@ -309,6 +315,6 @@
 						<!-- <img src="img/wheel.gif"/> -->
 					</div>
 				</div>
-
-			</body>
-			</html>
+			</div>
+		</body>
+		</html>

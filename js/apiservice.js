@@ -42,6 +42,7 @@ function fetchWeightGoal(){
 }
 
 function fetchAllBodyMeasurements(callback){
+    var deferred = Q.defer()
         var query = ClearBlade.prototype.Query({"collectionName":"BodyMeasurements"})
         query.setPage(0, 0);
         query.ascending("check_in_date")
@@ -51,8 +52,10 @@ function fetchAllBodyMeasurements(callback){
             }else{
                 bodyMeasurements = data
                 callback(data)
+                deferred.resolve()
             }
         })
+        return deferred.promise
 }
 
 function fetchColumns(callback){

@@ -9,7 +9,7 @@ function startupProgressBars(){
         color: '#2ECC40',
         trailColor: '#eee',
         trailWidth: 1,
-        svgStyle: {width: '100%', height: '100%'},
+        // svgStyle: {{width: '100%', height: '100%'}},
         text: {
           style: {
             // Text color.
@@ -43,7 +43,7 @@ function startupProgressBars(){
         color: '#FF851B',
         trailColor: '#eee',
         trailWidth: 1,
-        svgStyle: {width: '100%', height: '100%'},
+        // svgStyle: {width: '100%', height: '100%'},
         text: {
           style: {
             // Text color.

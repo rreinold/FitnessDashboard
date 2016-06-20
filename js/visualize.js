@@ -39,9 +39,9 @@ function graph() {
 
 	{"key":"left_arm_mass","color": '#8C001A'},
     {"key":"right_arm_mass","color":"#8C001A"},
-    {"key":"trunk_mass","color":"#7FDBFF", "width":"full"},
     {"key":"left_leg_mass","color":"#FF851B"},
-    {"key":"right_leg_mass","color":"#001f3f"}
+    {"key":"right_leg_mass","color":"#001f3f"},
+    {"key":"trunk_mass","color":"#7FDBFF", "width":"full"}
 
 	]
 
@@ -146,7 +146,6 @@ function mountHeaderData(){
 
 	MG.data_graphic({
         title: "Key Metrics",
-        description: "This is a simple line chart. You can remove the area portion by adding area: false to the arguments list.",
 		data: [data[0], data[1], data[2]],
         width: 700,
         interpolate: 'basic',
@@ -158,7 +157,8 @@ function mountHeaderData(){
         legend: legend,
         legend_target: '.legend',
         x_accessor: 'date',
-        markers: markers,
+        full_width:true,
+        // markers: markers,
         y_accessor: 'value',
         baselines: [{value: 0.5, label: 'Day 1'}],
         colors: ['blue', 'rgb(255,100,43)', '#CCCCFF'],
@@ -193,7 +193,6 @@ function mountData(graphID, metric){
     }
     MG.data_graphic({
         title: snakeCaseToHumanCase(metric.key),
-        description: "This is a simple line chart. You can remove the area portion by adding area: false to the arguments list.",
         data: data,
         width: width,
         interpolate: 'basic',
@@ -204,6 +203,7 @@ function mountData(graphID, metric){
         right: 40,
         markers: markers,
         target: graphName,
+        full_width:true,
         x_accessor: 'date',
         y_accessor: 'value'
     });
