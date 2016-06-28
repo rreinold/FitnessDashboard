@@ -80,7 +80,7 @@ function mountHeaderData(){
 	        	var range = 10
 	        	break;
         }
-        var normalized = (rawValue - min) / range
+        var normalized = i == 0 ? 1.0 : ((rawValue - min) / range)*2
     	var entry = {
     	    "date": goodStuff.check_in_date,
     	    "value": normalized
@@ -90,13 +90,16 @@ function mountHeaderData(){
     return MG.convert.date(graphData, 'date');
 }
 	var metrics = [
-		{"key":"weight","color": '#8C001A'},
 		{"key":"skeletal_muscle_mass","color": '#FF851B'},
 		{"key":"percent_body_fat","color": '#FF851B'}
 	]
 	for(i in metrics){
 		data.push(normalizeMetric(metrics[i].key))
 	}
+    // Set first datapoint to 1.0 as starter point
+    if(data.length > 1){
+        data[0].value = 1.0
+    }
 	
 	 var markers = [
 	 {
@@ -136,6 +139,30 @@ function mountHeaderData(){
         'label': 'Cut Down Gym Time = Lost Muscle'
     }];
 
+    var minimalMarkers = [
+
+{
+    'date':new Date('2015-09-06T00:00:00.000Z'),
+    'label':'Begin Cut'
+},
+{
+    'date':new Date('2016-01-24T00:00:00.000Z'),
+    'label':''
+},
+{
+    'date':new Date('2016-01-24T00:00:00.000Z'),
+    'label':'New Job'
+},
+{
+    'date':new Date('2016-02-22T00:00:00.000Z'),
+    'label':''
+},
+{
+    'date':new Date('2016-02-22T00:00:00.000Z'),
+    'label':'Bulk'
+}
+    ]
+
 	var legend = []
 	for(i in metrics){
 		legend.push(snakeCaseToHumanCase(metrics[i].key))
@@ -146,9 +173,10 @@ function mountHeaderData(){
 
 	MG.data_graphic({
         title: "Key Metrics",
-		data: [data[0], data[1], data[2]],
+		data: [data[0], data[1]],
         width: 700,
-        interpolate: 'basic',
+        // interpolate: 'basic',
+        interpolate_tension:0.92,
         animate_on_load: true,
         min_y_from_data: true,
         height: 300,
@@ -158,10 +186,11 @@ function mountHeaderData(){
         legend_target: '.legend',
         x_accessor: 'date',
         full_width:true,
-        // markers: markers,
+        linked:true,
+        markers: minimalMarkers,
         y_accessor: 'value',
-        baselines: [{value: 0.5, label: 'Day 1'}],
-        colors: ['blue', 'rgb(255,100,43)', '#CCCCFF'],
+        baselines: [{value: 1.0, label: 'Initial'}],
+        colors: ['blue', 'rgb(255,100,43)'],
         aggregate_rollover: true
     });
     
@@ -195,7 +224,8 @@ function mountData(graphID, metric){
         title: snakeCaseToHumanCase(metric.key),
         data: data,
         width: width,
-        interpolate: 'basic',
+        linked:true,
+        interpolate_tension:0.92,
         animate_on_load: true,
         min_y_from_data: true,
         color: metric.color,
