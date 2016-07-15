@@ -17,7 +17,7 @@ var jsGridConfig =
 
 
 function startupMainDashboard() {
-	fetchAllBodyMeasurements(structureRowData)
+	fetchBodyMeasurementRange("3MO",structureRowData)
 	fetchColumns(buildColumns)
 };
 
@@ -59,7 +59,10 @@ var structureRowData = function(rawRowData){
 
 	for (var i = 0 ; i < rawRowData.length; i++) {
 		var row = {};
-		var row = rawRowData[i].data;
+
+		// var row = rawRowData[i].data;
+		var row = rawRowData[i]
+		
 		var keys = Object.keys(row)
 
 		for(var j in keys){

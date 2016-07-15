@@ -58,6 +58,22 @@ function fetchAllBodyMeasurements(callback){
         return deferred.promise
 }
 
+function fetchBodyMeasurementRange(range, callback){
+    var deferred = Q.defer()
+
+    cb.Code().execute("getRangeData", {"range":range}, function(err, data) {
+        if(err) {
+            // uh oh
+        } else {
+            bodyMeasurements = data.results.DATA
+            callback(bodyMeasurements);
+            deferred.resolve()
+        }
+    });
+    return deferred.promise
+
+}
+
 function fetchColumns(callback){
     var collection = ClearBlade.prototype.Collection({"collectionID":"ba98daf40adea9d3a7a0c4c1cb62"})
     collection.columns(function(err, data){

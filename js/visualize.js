@@ -1,8 +1,7 @@
 function startupVisualize(){
     if(!initialized){
-        Q.all([fetchAllBodyMeasurements(graph),fetchColumns(buildColumns)])
+        Q.all([fetchBodyMeasurementRange("3MO",graph),fetchColumns(buildColumns)])
                 .then(function(){
-                    structureRowData(bodyMeasurements)
                     startupProgressBars()
                 })
                 .catch(function (error) {
@@ -11,13 +10,27 @@ function startupVisualize(){
                 .done();
     }
 }
-function retrieveMetric(key){
+function retrieveMetric(key, percentage){
 	var graphData = []
+    if(bodyMeasurements.length <= 0){
+        return
+    }
+    var initial = bodyMeasurements[0]
     for (var i = 0; i < bodyMeasurements.length; i++) {
-        var goodStuff = bodyMeasurements[i].data
+        var goodStuff = bodyMeasurements[i]
+
+        if(percentage){
+            var rawValue = goodStuff[key]
+            var initialValue = initial[key]
+            var value = rawValue / initialValue
+        }
+        else{
+            var value = goodStuff[key]
+        }
+
     	var entry = {
     	    "date": goodStuff.check_in_date,
-    	    "value": goodStuff[key]
+    	    "value": value
     	}
     	graphData.push(entry)
     }
@@ -30,18 +43,18 @@ function graph() {
 
 
 	var metrics = [
-	{"key":"weight","color": '#8C001A'},
-    {"key":"basal_metabolic_rate","color":"#001f3f"},
-    {"key":"dry_lean_mass","color": '#001f3f'},
+	{"key":"weight","color": '#8C001A','percentage':false},
+    {"key":"basal_metabolic_rate","color":"#001f3f",'percentage':false},
+    {"key":"dry_lean_mass","color": '#001f3f','percentage':false},
     {"key":"bmi","color": '#FF4136'},
-    {"key":"skeletal_muscle_mass","color": '#FF851B',"width":"full"},
+    {"key":"skeletal_muscle_mass","color": '#FF851B',"width":"full",'percentage':false},
     {"key":"percent_body_fat","color": '#FFDC00',"width":"full"},
 
-	{"key":"left_arm_mass","color": '#8C001A'},
-    {"key":"right_arm_mass","color":"#8C001A"},
-    {"key":"left_leg_mass","color":"#FF851B"},
-    {"key":"right_leg_mass","color":"#001f3f"},
-    {"key":"trunk_mass","color":"#7FDBFF", "width":"full"}
+	{"key":"left_arm_mass","color": '#8C001A','percentage':false},
+    {"key":"right_arm_mass","color":"#8C001A",'percentage':false},
+    {"key":"left_leg_mass","color":"#FF851B",'percentage':false},
+    {"key":"right_leg_mass","color":"#001f3f",'percentages':false},
+    {"key":"trunk_mass","color":"#7FDBFF", "width":"full",'percentage':false}
 
 	]
 
@@ -59,7 +72,7 @@ function mountHeaderData(){
 	var graphData = []
 
     for (var i = 0; i < bodyMeasurements.length; i++) {
-        var goodStuff = bodyMeasurements[i].data
+        var goodStuff = bodyMeasurements[i]
         var rawValue = goodStuff[key] 
         var min = 0
         var range = 1
@@ -168,9 +181,6 @@ function mountHeaderData(){
 		legend.push(snakeCaseToHumanCase(metrics[i].key))
 	}
 
-
-
-
 	MG.data_graphic({
         title: "Key Metrics",
 		data: [data[0], data[1]],
@@ -178,7 +188,7 @@ function mountHeaderData(){
         // interpolate: 'basic',
         interpolate_tension:0.92,
         animate_on_load: true,
-        min_y_from_data: true,
+        // min_y_from_data: true,
         height: 300,
         right: 40,
         target: "#graphX",
@@ -213,7 +223,7 @@ function mountData(graphID, metric){
     }];
 
 
-	var data = retrieveMetric(metric.key)
+	var data = retrieveMetric(metric.key, metric.percentage)
 	var graphName = "#graph" + graphID
 	// createGraphElement("graph" + graphID)
     var width = 600
