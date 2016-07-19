@@ -1,0 +1,31 @@
+{
+  "name": "fitness_dashboard",
+  "version": "2.0.0",
+  "description": "Fitness Dashboard powered by InBody, D3js, and ClearBlade",
+  "main": "index.js",
+  "dependencies": {
+    "clearblade": "^1.11.0",
+    "jsgrid": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rreinold/FitnessDashboard.git"
+  },
+  "keywords": [
+    "fitness",
+    "dashboard",
+    "d3",
+    "d3js",
+    "clearblade"
+  ],
+  "author": "Rob Reinold",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rreinold/FitnessDashboard/issues"
+  },
+  "homepage": "https://github.com/rreinold/FitnessDashboard#readme"
+}
