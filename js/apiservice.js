@@ -74,6 +74,7 @@ function fetchBodyMeasurementRange(range, callback){
 }
 
 function fetchColumns(callback){
+    // TODO defer?
     var collection = ClearBlade.prototype.Collection({"collectionID":"ba98daf40adea9d3a7a0c4c1cb62"})
     collection.columns(function(err, data){
         if(err){
@@ -83,6 +84,18 @@ function fetchColumns(callback){
             callback(data)
         }
     })
+}
+
+function submitBodyMeasurement(bodyMeasurement, callback){
+
+
+    cb.Code().execute("submitBodyMeasurement", bodyMeasurement, function(err, data) {
+        if(err) {
+            // TODO uh oh
+        } else {
+            callback();
+        }
+    });
 }
 
 // TODO update SDK for this request

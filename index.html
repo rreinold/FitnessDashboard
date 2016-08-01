@@ -38,6 +38,7 @@
 	<script src="js/login.js"></script>
 	<script src="js/progress.js"></script>
 	<script src="js/visualize.js"></script>
+	<script src="js/checkin.js"></script>
 	<script src="js/goals.js"></script>
 	<script src="js/apiservice.js"></script>
 	<script src="js/dashboard/dashboard.js"></script>
@@ -194,9 +195,7 @@
 			</div>
 
 			<div>
-				<div id="ticketGrid"></div>
-				<select style="width:100%" id="checkInSelect"></select>
-				<button style="width:100%" onClick="submitCheckIn()">Submit</button>
+				<button style="width:100%" onClick="retrieveBodyMeasurementForm()">Submit</button>
 			</div>
 		</div>
 		<div class="hide" id="visualize" >
