@@ -1,9 +1,5 @@
 var isLoggedIn = false;
 
-// RR TODO: We are setting this global postLoginView value from many other 
-//    locations in the code. Let's instead add a parameter to #loginEvent
-//    method signature
-
 var postLoginView = DEFAULT_POST_LOGIN_VIEW;
 var loginEvent = function() {
 	var initCallback = function(err, data){

@@ -41,23 +41,6 @@ function fetchWeightGoal(){
     })
 }
 
-function fetchAllBodyMeasurements(callback){
-    var deferred = Q.defer()
-        var query = ClearBlade.prototype.Query({"collectionName":"BodyMeasurements"})
-        query.setPage(0, 0);
-        query.ascending("check_in_date")
-        query.fetch(function(err, data){
-            if (err){
-               // TODO uh oh
-            }else{
-                bodyMeasurements = data
-                callback(data)
-                deferred.resolve()
-            }
-        })
-        return deferred.promise
-}
-
 function fetchBodyMeasurementRange(range, callback){
     var deferred = Q.defer()
 
@@ -73,6 +56,7 @@ function fetchBodyMeasurementRange(range, callback){
     return deferred.promise
 }
 
+// TODO Update ClearBlade js SDK to support collection headers by name
 function fetchColumns(callback){
     // TODO defer?
     var collection = ClearBlade.prototype.Collection({"collectionID":"ba98daf40adea9d3a7a0c4c1cb62"})
@@ -98,21 +82,6 @@ function submitBodyMeasurement(bodyMeasurement, callback){
         }
     });
 }
-
-// TODO update SDK for this request
-// function fetchColumns(callback){
-//     var collection = ClearBlade.prototype.Collection({"collectionName":"BodyMeasurements"})
-//     collection.columns(function(err, data){
-//         if(err){
-//             alert(JSON.stringify(data));
-//         }
-//         else{
-//             callback(data)
-//         }
-//     })
-// }
-
-
 
 //START API call functions
 

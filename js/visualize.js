@@ -38,6 +38,10 @@ function retrieveMetric(key, percentage){
 }
 
 function graph() {
+
+    if(bodyMeasurements.length == 0){
+        alert("No checkins founds. Please go to \"Check In\" and add your Body Measurement.")
+    }
 	
 	mountHeaderData()
 
