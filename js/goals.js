@@ -30,7 +30,7 @@ function startupGoals(){
 		    color: '#39CCCC',
 		    trailColor: '#eee',
 		    trailWidth: 1,
-		    svgStyle: {width: '100%', height: '100%'},
+		    svgStyle: {width: '100%', height: '10%'},
 		    text: {
 		      style: {
 		        // Text color.
@@ -38,7 +38,7 @@ function startupGoals(){
 		        color: '#999',
 		        position: 'absolute',
 		        right: '0',
-		        top: '30px',
+		        top: '50px',
 		        padding: 0,
 		        margin: 0,
 		        transform: null
