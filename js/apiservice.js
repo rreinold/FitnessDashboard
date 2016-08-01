@@ -90,10 +90,11 @@ function submitBodyMeasurement(bodyMeasurement, callback){
 
 
     cb.Code().execute("submitBodyMeasurement", bodyMeasurement, function(err, data) {
-        if(err) {
-            // TODO uh oh
+        if(err || !data.success) {
+            alert(data.results)
         } else {
-            callback();
+            alert("Submit successful!")
+            showView(DEFAULT_POST_LOGIN_VIEW);
         }
     });
 }

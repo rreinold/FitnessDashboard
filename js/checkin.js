@@ -34,14 +34,12 @@ function retrieveBodyMeasurementForm(){
 		var entry = element.value;
 		var key = checkInSchema[i]
 		if(key !== "check_in_date"){
-			entry = parseInt(entry)
+			entry = parseFloat(entry)
 		}
 		bodyMeasurement[key] = entry;
 	}
 	// needs callback
-	submitBodyMeasurement(bodyMeasurement, function(){
-		console.log("Done.");
-	})
+	submitBodyMeasurement(bodyMeasurement)
 
 
 }
