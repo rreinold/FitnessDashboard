@@ -9,7 +9,7 @@
 
 
 	</style>
-	<title>FitBoardRob's Fitness Dashboard</title>
+	<title>FitBoard - Rob's Fitness Dashboard</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link type="text/css" rel="stylesheet" href="css/jsgrid-theme.css" />
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.3.1/jsgrid.min.css" />
@@ -69,14 +69,133 @@
 		</div>
 
 		<div class="hide" id="checkin" >
-			<div class="sectionTitle">
-				Check In
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+							<p class="flow-text center-align"> Welcome to your FitBoard</p>
+							<p class=" center-align"> Enter the Check In Data from your InBody Printout</p>
+						</div>
+					</div>
+				</div>
 			</div>
+
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+							<label>CheckIn Date (YYYY-MM-DD)</label>
+				      		<input type="text" id="checkin_item_0" placeholder = "2016-07-20"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12 m12 l6">
+					<div class="card z-depth-2">
+						<div class="card-content">
+				      		<label>Weight (lbs)</label>
+				      		<input type="text" id="checkin_item_1" placeholder = "200"/>
+				      		<label>Total Body Water (lbs)</label>
+				      		<input type="text" id="checkin_item_2" placeholder = "100"/>
+				      		<label>Dry Lean Mass (lbs)</label>
+				      		<input type="text" id="checkin_item_3" placeholder = "50"/>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m12 l6">
+					<div class="card z-depth-2">
+						<div class="card-content">
+				      		<label>Body Fat Mass (lbs)</label>
+				      		<input type="text" id="checkin_item_4"/>
+				      		<label>Lean Body Mass (lbs)</label>
+				      		<input type="text" id="checkin_item_5"/>
+				      		<label>Skeletal Muscle Mass (lbs)</label>
+				      		<input type="text" id="checkin_item_6"/>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+				      		<label>BMI</label>
+				      		<input type="text" id="checkin_item_7"/>
+				      		<label>Percent Body Fat (ex 25.0%)</label>
+				      		<input type="text" id="checkin_item_8" placeholder="25.0"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+				      		<label>Right Arm - Mass</label>
+				      		<input type="text" id="checkin_item_9"/>
+				      		<label>Right Arm - Percent</label>
+				      		<input type="text" id="checkin_item_10"/>
+				      		<label>Left Arm - Mass</label>
+				      		<input type="text" id="checkin_item_11"/>
+				      		<label>Left Arm - Percent</label>
+				      		<input type="text" id="checkin_item_12"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+				      		<label>Trunk - Mass</label>
+				      		<input type="text" id="checkin_item_13"/>
+				      		<label>Trunk - Percent</label>
+				      		<input type="text" id="checkin_item_14"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+				      		<label>Right Leg - Mass</label>
+				      		<input type="text" id="checkin_item_15"/>
+				      		<label>Right Leg - Percent</label>
+				      		<input type="text" id="checkin_item_16"/>
+				      		<label>Left Leg - Mass</label>
+				      		<input type="text" id="checkin_item_17"/>
+				      		<label>Left Leg - Percent</label>
+				      		<input type="text" id="checkin_item_18"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="card z-depth-2">
+						<div class="card-content">
+				      		<label>Body Fat Mass Differential</label>
+				      		<input type="text" id="checkin_item_19"/>
+				      		<label>Lean Body Mass Differential</label>
+				      		<input type="text" id="checkin_item_20"/>
+				      		<label>Basal Metabolic Rate</label>
+				      		<input type="text" id="checkin_item_21"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div>
 				<div id="ticketGrid"></div>
 				<select style="width:100%" id="checkInSelect"></select>
-				Enter Weight: <br>
-
 				<button style="width:100%" onClick="submitCheckIn()">Submit</button>
 			</div>
 		</div>
@@ -87,8 +206,8 @@
 				<div class="col s12 m12 l12">
 					<div class="card z-depth-2">
 						<div class="card-content">
-							<p class="flow-text center-align"> Welcome to your FitBoard</p>
-							<p class=" center-align"> Powered by NutriShop ATX and InBody</p>
+							<p  class="center-align flow-text"> Welcome to FitBoard<text class="blue-text">Beta</text></p>
+							<p class="center-align grey-text italic"> Powered by NutriShop ATX</p>
 						</div>
 					</div>
 				</div>

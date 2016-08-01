@@ -48,7 +48,7 @@ function fetchAllBodyMeasurements(callback){
         query.ascending("check_in_date")
         query.fetch(function(err, data){
             if (err){
-               
+               // TODO uh oh
             }else{
                 bodyMeasurements = data
                 callback(data)
@@ -63,7 +63,7 @@ function fetchBodyMeasurementRange(range, callback){
 
     cb.Code().execute("getRangeData", {"range":range}, function(err, data) {
         if(err) {
-            // uh oh
+            // TODO uh oh
         } else {
             bodyMeasurements = data.results.DATA
             callback(bodyMeasurements);
@@ -71,7 +71,6 @@ function fetchBodyMeasurementRange(range, callback){
         }
     });
     return deferred.promise
-
 }
 
 function fetchColumns(callback){
@@ -86,7 +85,7 @@ function fetchColumns(callback){
     })
 }
 
-// TODO Confirm patch
+// TODO update SDK for this request
 // function fetchColumns(callback){
 //     var collection = ClearBlade.prototype.Collection({"collectionName":"BodyMeasurements"})
 //     collection.columns(function(err, data){
@@ -101,20 +100,6 @@ function fetchColumns(callback){
 
 
 
-// Request schemas for the Tag collection
-var isCoordinator = function(successCallback, failureCallback) {
-
-    successCallback();
-
-    // cb.Code().execute("isCoordinator", {}, function(err, data) {
-    //     if(err) {
-    //         failureCallback();
-    //     } else {
-    //         successCallback();
-    //     }
-    // });
-};
-
 //START API call functions
 
 var startup = function(){
@@ -122,13 +107,12 @@ var startup = function(){
     var initCallback = function(err, data){
         if(err) {
             // this path should not happen and would only happen with a misconfigured system or server outage
-            alert("failed to init");
+            alert("Unable to load dashboard. Please try again.");
         } else {
-            // initButtons()
             var authCallback = function(){
+                // Start up any additional pages
                 showView(DEFAULT_POST_LOGIN_VIEW);
                 startupMainDashboard();
-                // Start up any additional pages
             };
 
             var noAuthCallback = function(){
