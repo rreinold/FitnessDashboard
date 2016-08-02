@@ -48,7 +48,16 @@ var buildColumns = function(rawColumns){
 		var rawType = rawColumns[i].ColumnType
 		var type = sqlTypesToJSGrid[rawType]
 
-		columns.push({name: name, type: type, align:"center"})
+		var column = {name: name, type: type, align:"center"}
+		if(rawName == "username"){
+			continue;
+		}
+		if(rawName == "check_in_timestamp"){
+			column.width = "210px"
+			columns.unshift(column)
+			continue;
+		}
+		columns.push(column)
 	}
 	jsGridConfig.fields = columns
 	updateGrid()
@@ -69,6 +78,9 @@ var structureRowData = function(rawRowData){
 			var key = keys[j]
 			var humanCase = snakeCaseToHumanCase(key)
 			row[humanCase] = row[key]
+			if(humanCase == "Check In Timestamp"){
+				row[humanCase] = row[humanCase].split('T')[0]
+			}
 		}
 		allRows.push(row)
 	}
