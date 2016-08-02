@@ -1,6 +1,6 @@
 function startupProgressBars(){
       removeChildren(document.getElementById("progressbar1"))
-    var progress = .94
+    var progress = 1
       var graph = document.getElementById("progressbar1")
       var bar = new ProgressBar.SemiCircle(graph, {
         strokeWidth: 4,
@@ -27,14 +27,14 @@ function startupProgressBars(){
         from: {color: '##2ECC40'},
         to: {color: '#ED6A5A'},
         step: (state, bar) => {
-          bar.setText((.94 * 100) + "%");
+          bar.setText((progress * 100) + "%");
         }
       });
 
       bar.animate(progress);  // Number from 0.0 to 1.0
 
       removeChildren(document.getElementById("progressbar2"))
-      var progress = .64
+      var progress = 1
       var graph = document.getElementById("progressbar2")
       var bar = new ProgressBar.SemiCircle(graph, {
         strokeWidth: 4,
