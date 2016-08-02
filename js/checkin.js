@@ -39,7 +39,14 @@ function retrieveBodyMeasurementForm(){
 		bodyMeasurement[key] = entry;
 	}
 	// needs callback
-	submitBodyMeasurement(bodyMeasurement)
+	submitBodyMeasurement(bodyMeasurement,function(err, data) {
+        if(err || !data.success) {
+            alert(data.results)
+        } else {
+            alert("Submit successful!")
+            showView(DEFAULT_POST_LOGIN_VIEW);
+        }
+    })
 
 
 }

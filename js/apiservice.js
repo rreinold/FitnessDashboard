@@ -73,14 +73,7 @@ function fetchColumns(callback){
 function submitBodyMeasurement(bodyMeasurement, callback){
 
 
-    cb.Code().execute("submitBodyMeasurement", bodyMeasurement, function(err, data) {
-        if(err || !data.success) {
-            alert(data.results)
-        } else {
-            alert("Submit successful!")
-            showView(DEFAULT_POST_LOGIN_VIEW);
-        }
-    });
+    cb.Code().execute("submitBodyMeasurement", bodyMeasurement, callback);
 }
 
 //START API call functions
