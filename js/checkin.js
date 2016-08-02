@@ -1,5 +1,5 @@
 var checkInSchema = [
-		"check_in_date",
+		"check_in_timestamp",
 		"weight",
 		"total_body_water",
 		"dry_lean_mass",
