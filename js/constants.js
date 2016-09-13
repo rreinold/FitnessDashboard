@@ -1,8 +1,3 @@
-var metrics = [
-{"key":"skeletal_muscle_mass","color": '#FF851B'},
-{"key":"percent_body_fat","color": '#FF851B'}
-]
-
 var markers = [
 {
 	'date': new Date('2015-10-02T00:00:00.000Z'),
