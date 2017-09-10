@@ -31,10 +31,20 @@ var markers = [
 {
 	'date': new Date('2016-02-22T00:00:00.000Z'),
 	'label': 'New Strength Training Routine'
-}, {
+}, 
+{
 	'date': new Date('2016-02-02T00:00:00.000Z'),
 	'label': 'Cut Down Gym Time = Lost Muscle'
-}];
+},
+{
+	'date': new Date('2017-05-20T00:00:00.000Z'),
+	'label': 'Spartan Race'
+},
+{
+	'date': new Date('201-06-20T00:00:00.000Z'),
+	'label': 'Resumed Leg Workouts'
+}
+];
 
 var minimalMarkers = [
 
