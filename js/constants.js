@@ -41,7 +41,7 @@ var markers = [
 	'label': 'Spartan Race'
 },
 {
-	'date': new Date('201-06-20T00:00:00.000Z'),
+	'date': new Date('2017-06-20T00:00:00.000Z'),
 	'label': 'Resumed Leg Workouts'
 }
 ];
