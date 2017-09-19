@@ -1,8 +1,6 @@
 var isLoggedIn = false;
 
-var postLoginView = DEFAULT_POST_LOGIN_VIEW;
-var loginEvent = function() {
-	var initCallback = function(err, data){
+function loginCallback(err, data){
         if(err) {
             showError("login", data);
         } else {
@@ -12,7 +10,9 @@ var loginEvent = function() {
             showView(postLoginView);
         }
     };
-    
+
+var postLoginView = DEFAULT_POST_LOGIN_VIEW;
+var loginEvent = function() {
     var email = document.getElementById("email").value;
     var email = email.toLowerCase();
     var password = document.getElementById("password").value;
@@ -23,7 +23,7 @@ var loginEvent = function() {
     } else {
         initOptions.email = email;
         initOptions.password = password;
-        initOptions.callback = initCallback;
+        initOptions.callback = loginCallback;
         cb.init(initOptions);
     }
 }

@@ -24,6 +24,8 @@ var initOptions = {
     cleanSession: true,
     systemKey: "9898daf40ad28aa9f885dfa5dc38",
     systemSecret: "9898DAF40A94CAC891A7D5C78749",
+    email: "anon@clearblade.com",
+    password: "clearblade"
 };
 
 function fetchWeightGoal(){
@@ -96,7 +98,7 @@ var startup = function(){
                 // blockUI(false, "You are not authorized to access this dashboard.");
                 showView("login");
             }
-
+            loginCallback(err, data)
             checkAuth(authCallback, noAuthCallback)
                 
             }
