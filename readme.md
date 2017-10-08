@@ -1,6 +1,8 @@
-See this project in action: track.robreinold.com
+![alt text](https://github.com/rreinold/FitnessDashboard/blob/master/img/screenshot.jpg?raw=true "Dashboard") 
 
 ## Purpose
+
+Use analytics to find actionable correlations between fitness routines and body composition.
 
 ### Technical Goals
 Hands-on practice using Mike Bostock's D3.js library, and refine my web development skills
@@ -13,10 +15,7 @@ Improve success rate of fitness goals via fusing, tracking, and analyzing a vari
 Track and display any significant exercise performed. This includes gym sessions, hiking, running, basketballs, and other sports.
 
 #### Body Composition
-Full Body composition analysis performed at NutriShop Austin-South on a rough weekly schedule.
-
-#### Diet
-Maintain high-level record of eating habits. Leverage MyFitnessPal API to pull data about my diet.
+Full Body composition analysis performed at NutriShop Austin-South.
 
 ## Credit
 
