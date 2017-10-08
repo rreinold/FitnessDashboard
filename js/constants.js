@@ -43,6 +43,14 @@ var markers = [
 {
 	'date': new Date('2017-06-20T00:00:00.000Z'),
 	'label': 'Resumed Leg Workouts'
+},
+{
+	'date': new Date('2017-09-20T00:00:00.000Z'),
+	'label': 'Hosted Friend'
+},
+{
+	'date': new Date('2017-09-30T00:00:00.000Z'),
+	'label': 'Shoulder Injury'
 }
 ];
 
