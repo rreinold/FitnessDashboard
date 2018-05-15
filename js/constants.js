@@ -75,5 +75,9 @@ var minimalMarkers = [
 {
 	'date':new Date('2016-02-22T00:00:00.000Z'),
 	'label':'Bulk'
+},
+{
+	'date':new Date('2018-04-15T00:00:00.000Z'),
+	'label':'Sho Surgery'
 }
 ]

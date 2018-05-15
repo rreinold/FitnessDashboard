@@ -133,7 +133,7 @@ function mountHeaderData(){
         x_accessor: 'date',
         full_width:true,
         linked:true,
-        markers: markers,
+        markers: minimalMarkers,
         y_accessor: 'value',
         y_axis:false,
         mouseover: function(d, i) {
@@ -189,7 +189,7 @@ function mountData(graphID, metric){
         color: metric.color,
         height: 200,
         right: 40,
-        // markers: markers,
+        markers: minimalMarkers,
         target: graphName,
         full_width:true,
         x_accessor: 'date',
